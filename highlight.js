@@ -25,7 +25,7 @@ chrome.runtime.onMessage.addListener(
 						// For each custom colored word set the background color and add a class name.
 						for(var i=0;i<customColorWords.length;i++){
 							customColorWords[i].style.backgroundColor=color;
-							customColorWords[i].className += "highlight-extension-custom";
+							customColorWords[i].className += " highlight-extension-custom";
 						}
 					}
 				}
@@ -47,7 +47,7 @@ chrome.runtime.onMessage.addListener(
 			
 			// Get each of the custom color words and remove the inline style and all class names.
 			var customColorWords = document.getElementsByClassName('highlight-extension-custom');
-			while(customColoredWords.length>0){
+			while(customColorWords.length>0){
 				customColorWords[0].removeAttribute('style');
 				customColorWords[0].className = ' ';
 			}	
