@@ -17,38 +17,41 @@ chrome.runtime.onMessage.addListener(
 					var newClass = "highlight-extension-"+color;			 
 					
 					findAndReplaceDOMText(document.body,{find:word,wrap:'span',wrapClass:newClass});
-
+					
+					// If the color is a custom color then set the background color of each word with inline style.
 					if(!(baseColors.includes(color))){
 						var customColorWords = document.getElementsByClassName(newClass);
 						
-						// For each custom colored word set the background color.
+						// For each custom colored word set the background color and add a class name.
 						for(var i=0;i<customColorWords.length;i++){
 							customColorWords[i].style.backgroundColor=color;
+							customColorWords[i].className += "highlight-extension-custom";
 						}
 					}
 				}
 			}
 		}// TODO: Figure out how to remove inline style for a custom color 
 		else if(request.action == 'remove-highlighting'){
-			var colors = request['colors-array'];
-			console.log('The colors to be removed are: '+colors);
-			var numColors = colors.length;
+			var numColors = baseColors.length;
 
-			// For each color, get all elements with class name and remove the name
+			// For each base color, get all elements with class name and remove the name.
 			for(var i=0;i<numColors;i++){
-				var color = colors[i];
-				var className = 'highlight-extension-'+colors[i];
+				var color = baseColors[i];
+				var className = 'highlight-extension-'+color;
 				var coloredWords = document.getElementsByClassName(className);
 			
 				while(coloredWords.length>0){
 					coloredWords[0].classList.remove(className);
-
-					// Remove style attribute from custom colors.
-					if(!(baseColors.includes(color))){
-						coloredWords[0].removeAttribute('style');			
-					}
 				}	
 			}
+			
+			// Get each of the custom color words and remove the inline style and all class names.
+			var customColorWords = document.getElementsByClassName('highlight-extension-custom');
+			while(customColoredWords.length>0){
+				customColorWords[0].removeAttribute('style');
+				customColorWords[0].className = ' ';
+			}	
+			 
 		}
 	}
-);
+); 
