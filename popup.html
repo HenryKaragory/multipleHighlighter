@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<body style="width:300px;"> 
+	<form id="the-form">
+		<div id="word-template">
+        		<input type="text" id = "word-1"/>
+			<select name="color">
+				<option value="blue">Blue</option>
+				<option value="red">Red</option>
+				<option value="green">Green</option>
+				<option value="purple">Pink</option>
+			</select>
+		</div><br>
+		<button type="button" id="another-word">Click to add another word</button><br><br>
+		<button type="button" id="another-color">Click to add a custom color</button><br><br>
+
+		<div id="rgb-input" style="display:none;">
+			<input type="text" placeholder="Name of color" id="new-color-name"/><br>
+			<input type="text" placeholder="Red value" id ="new-red-value"/><br>
+			<input type="text" placeholder="Green value" id ="new-green-value"/><span id ="color-preview">  Color preview</span><br>
+			<input type="text" placeholder="Blue value" id ="new-blue-value"/><br>
+			<button type="button" id="create-new-color"> Add this color </button><button type="button" id="exit-new-color">Exit</button><br><br>
+		</div>
+		<div>
+			<input type = "submit" id = "submit" value="Highlight"/>
+			<button type="button" id="remove-highlighting">Remove Highlighting</button>
+		</div>
+	    </form>
+	<script type="text/javascript" src="popup.js"></script>
+	</body>
+</html>
