@@ -2,7 +2,8 @@
 <html>
 	<body style="width:300px;"> 
 	<form id="the-form">
-		<div id="word-template">
+
+		<div id="word-template" style="margin-top:10px;margin-bottom:10px">
         		<input type="text" id = "word-1"/>
 			<select name="color">
 				<option value="blue">Blue</option>
@@ -10,21 +11,29 @@
 				<option value="green">Green</option>
 				<option value="purple">Pink</option>
 			</select>
-		</div><br>
+		</div>
+
 		<button type="button" id="another-word">Click to add another word</button><br><br>
 		<button type="button" id="another-color">Click to add a custom color</button><br><br>
-
-		<div id="rgb-input" style="display:none;">
+		
+		<div id="rgb-input" style="display:none;margin-left:10px">
 			<input type="text" placeholder="Name of color" id="new-color-name"/><br>
 			<input type="text" placeholder="Red value" id ="new-red-value"/><br>
 			<input type="text" placeholder="Green value" id ="new-green-value"/><span id ="color-preview">  Color preview</span><br>
 			<input type="text" placeholder="Blue value" id ="new-blue-value"/><br>
 			<button type="button" id="create-new-color"> Add this color </button><button type="button" id="exit-new-color">Exit</button><br><br>
 		</div>
+		
+		<button type="button" id="manage-colors">Click to manage your colors</button>
+
+		<div id="manage-colors-display" style="display:none">
+		</div><br><br>
+
 		<div>
 			<input type = "submit" id = "submit" value="Highlight"/>
 			<button type="button" id="remove-highlighting">Remove Highlighting</button>
 		</div>
+
 	    </form>
 	<script type="text/javascript" src="popup.js"></script>
 	</body>
