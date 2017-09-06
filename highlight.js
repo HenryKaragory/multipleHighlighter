@@ -30,7 +30,7 @@ chrome.runtime.onMessage.addListener(
 					}
 				}
 			}
-		}// TODO: Figure out how to remove inline style for a custom color 
+		}
 		else if(request.action == 'remove-highlighting'){
 			var numColors = baseColors.length;
 
